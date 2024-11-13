@@ -10,7 +10,7 @@ exports.signup = async (req,res) => {
     try{
       validateSignup(req);
       
-    const { userName, password, Name, email, age, userType}=req.body;
+    const {password, Name, email}=req.body;
     // Encrypt the password and then store into DB
      
     const hashedPassword= await bcrypt.hash(password,10);
