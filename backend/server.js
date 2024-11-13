@@ -4,6 +4,7 @@ const app= express();
 const connectDB=require("./src/config/database.js");
 const cookie= require("cookie-parser");
 
+require('dotenv').config();
 
 app.use(express.json());
 app.use(cookie());
