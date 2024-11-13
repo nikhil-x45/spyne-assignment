@@ -1,14 +1,14 @@
 const User = require("../models/User");
-const {validateSignup}= require("../utils/validaton");
+//const {validateSignup}= require("../utils/validaton");
 const bcrypt= require("bcrypt");
 
 const jwt = require("jsonwebtoken"); 
-const nodemailer= require("nodemailer");
+//const nodemailer= require("nodemailer");
 
 exports.signup = async (req,res) => {
     // validation of the data (if not correct,throw error and dont let user register)
     try{
-      validateSignup(req);
+      //validateSignup(req);
       
     const {password, Name, email}=req.body;
     // Encrypt the password and then store into DB
@@ -59,5 +59,4 @@ exports.logout= async(req,res)=>{
      // user comes with a token to logout 
       res.cookie("token",null,{expires:new Date(Date.now())});
       res.send("Logged out!!"); 
-     // 
 };
