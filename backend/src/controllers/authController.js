@@ -3,10 +3,9 @@ const User = require("../models/User");
 const bcrypt= require("bcrypt");
 
 const jwt = require("jsonwebtoken"); 
-//const nodemailer= require("nodemailer");
 
 exports.signup = async (req,res) => {
-    // validation of the data (if not correct,throw error and dont let user register)
+    // validation of the data 
     try{
       //validateSignup(req);
       

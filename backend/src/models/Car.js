@@ -33,7 +33,29 @@ const carSchema= mongoose.Schema({
         ref: 'User',
         required: true
     },
+    images: [{
+        public_id: {
+            type: String,
+            required: true
+        },
+        url: {
+            type: String,
+            required: true
+        }
+    }],
+    imagesCount: {
+        type: Number,
+        default: 0
+    }
 },{timestamps:true});
+
+carSchema.pre('save', function(next) {
+    if (this.images.length > 10) {
+        next(new Error('Cannot add more than 10 images per car'));
+    }
+    this.imagesCount = this.images.length;
+    next();
+});
 
 const Car= mongoose.model('Car',carSchema);
 
